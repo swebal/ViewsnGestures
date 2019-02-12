@@ -12,6 +12,9 @@
 @interface ViewController : UIViewController <TileViewDelegate>
 
 @property (weak, nonatomic) IBOutlet TileView *tileView;
+@property (nonatomic, strong) NSArray *images; // Innehåller den INTE column & row!
+
+// Om vi har index, så kan vi hämta RÄTT OBJEKT i en array!
 
 @end
 

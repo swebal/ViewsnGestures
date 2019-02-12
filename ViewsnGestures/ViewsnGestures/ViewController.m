@@ -27,6 +27,7 @@
 }
 
 - (void)tileTapped:(UIView *)tile {
+    NSInteger index = tile.tag; // Används inte här, men vi skulle kunna!
     [tile setBackgroundColor:[UIColor greenColor]];
 }
 

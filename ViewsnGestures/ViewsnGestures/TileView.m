@@ -61,12 +61,26 @@
             NSInteger index = i + j * columns;
             myView.tag = index;
             
+            UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [myButton setFrame:CGRectMake(30, 30, viewWidth-60, viewWidth-60)];
+            [myButton setBackgroundColor:[UIColor yellowColor]];
+            [myButton setTitle:[NSString stringWithFormat:@"%d, %d", i, j] forState:UIControlStateNormal];
+            [myButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [myButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [myView addSubview:myButton]; // Den här metoden tilldelar: myButton.superView = myView;
+            
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-            [myView addGestureRecognizer:tap];
+            [myView addGestureRecognizer:tap]; // Den här metoden tilldelar: tap.view = myView;
             
             [_myScrollView addSubview:myView];
         }
     }
+}
+
+- (void)buttonPressed:(UIButton *)button {
+    NSInteger index = button.superview.tag;
+    NSLog(@"Did press button: %ld", index);
+    [button setBackgroundColor:[UIColor purpleColor]];
 }
 
 - (void)didTap:(UIGestureRecognizer *)recognizer {
