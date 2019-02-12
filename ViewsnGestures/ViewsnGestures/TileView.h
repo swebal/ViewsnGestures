@@ -18,6 +18,8 @@
 
 @interface TileView : UIView
 
+@property (nonatomic, assign) NSInteger columns;
+@property (nonatomic, assign) NSInteger rows;
 @property (nonatomic, strong) UIScrollView *myScrollView;
 @property (nonatomic, assign) id<TileViewDelegate> tileDelegate;
 

@@ -16,6 +16,10 @@
     self.view.backgroundColor = [UIColor blueColor];
     [self.tileView setColumns:3 andRows:9];
     self.tileView.tileDelegate = self;
+    
+    [NSTimer scheduledTimerWithTimeInterval:3 repeats:true block:^(NSTimer * _Nonnull timer) {
+        self.tileView.columns = arc4random_uniform(5) + 1;
+    }];
 }
 
 #pragma mark - Tile Delegate

@@ -17,6 +17,23 @@
 
 @implementation TileView
 
+
+- (void)setColumns:(NSInteger)columns {
+    [self setColumns:columns andRows:_numberOfRows];
+}
+
+- (NSInteger)columns {
+    return _numberOfColumns;
+}
+
+- (void)setRows:(NSInteger)rows {
+    [self setColumns:_numberOfColumns andRows:rows];
+}
+
+- (NSInteger)rows {
+    return _numberOfRows;
+}
+
 - (void)setColumns:(NSInteger)columns andRows:(NSInteger)rows {
     
     self.numberOfColumns = columns;
